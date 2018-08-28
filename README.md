@@ -1,4 +1,4 @@
-# AWS IoT Device Registration using Lambda
+# AWS IoT Device Registration using Lambda Example
 
 This is an example of creating AWS IoT Device and generate Certificate using Lambda.
 
