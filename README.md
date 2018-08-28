@@ -12,7 +12,7 @@ Set up IoT Device automatically and register to AWS IoT when you execute AWS Lam
 ## How to run locally
 - Run following command
 ```
-$ sls invoke local -f generateCert -d '{"thingName":"test1"}'
+$ sls invoke local -f generateCert -d '{"thingName":"thing001","thingType":"test-thing-type","policy":"test-device-policy"}'
 ```
 
 ## How to deploy
