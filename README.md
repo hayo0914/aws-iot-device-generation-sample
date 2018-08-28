@@ -6,7 +6,7 @@ This is an example of creating AWS IoT Device and generate Certificate using Lam
 Set up "Thing" automatically and register to AWS IoT by executing Lambda Function. This is very useful when you have to register a lot of devices at a factory or something.
 
 ## Notes
-- The security is very important do not allow anyone register arbitrary device. (ex: in case using API Gateway, you can use API Key or Custom Authorizer)
+- The security is very important. So you have to make sure that anyone can NOT call this Lambda without any permission. (ex: in case using API Gateway, you can use API Key or Custom Authorizer)
 
 ## Set Up
 - Create ThingType
