@@ -2,7 +2,7 @@ import boto3
 
 class DeviceManager:
     POLICY_NAME = 'test-device-policy'
-    THING_TYPE_NAME = 'test-thing'
+    THING_TYPE_NAME = 'test-thing-type'
 
     def __init__(self):
         self.client = boto3.client('iot')
@@ -27,25 +27,25 @@ class DeviceManager:
                 },
             }
         )
-        self.certificateArn = response['certificateArn']
-        self.certificateId = response['certificateId']
-        self.certificatePem = response['certificatePem ']
-        self.keyPair = response['keyPair']
+        self.thingName = response['thingName']
+        self.thingArn = response['thingArn']
+        self.thingId = response['thingId']
         return response
 
     def createKeysAndCertificate(self):
         response = self.client.create_keys_and_certificate(
             setAsActive=True
         )
-        self.thingName = response['thingName']
-        self.thingArn = response['thingArn']
-        self.thingId = response['thingId']
+        self.certificateArn = response['certificateArn']
+        self.certificateId = response['certificateId']
+        self.certificatePem = response['certificatePem']
+        self.keyPair = response['keyPair']
         return response
     
     def attachThingPrincipal(self):
         self.client.attach_thing_principal(
-            thingName = this.thingName,
-            principal = certificateArn
+            thingName = self.thingName,
+            principal = self.certificateArn
         )
 
     def attachPolicy(self):
