@@ -1,7 +1,7 @@
 import json
 import device_manager
 
-def generateCert(event, context):
+def registerDeviceToAWSIoT(event, context):
     """
     Assume event contains thingName of the thing which will be created
     """
