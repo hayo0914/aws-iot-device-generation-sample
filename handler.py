@@ -3,8 +3,10 @@ import device_manager
 
 def generateCert(event, context):
     deviceManager = device_manager.DeviceManager()
-    device = deviceManager.createThing('test123456')
-    keysAndCertificate = deviceManager.createKeysAndCertificate()
+    deviceManager.createThing('test123456')
+    deviceManager.createKeysAndCertificate()
+    deviceManager.attachThingPrincipal()
+    deviceManager.attachPolicy()
 
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",

@@ -19,9 +19,9 @@ class DeviceManager:
     
     def createThing(self, thingName):
         response = self.client.create_thing(
-            thingName=thingName,
+            thingName = thingName,
             thingTypeName = self.THING_TYPE_NAME,
-            attributePayload={
+            attributePayload = {
                 'attributes': {
                     'test': '1'
                 },
@@ -50,5 +50,6 @@ class DeviceManager:
 
     def attachPolicy(self):
         self.client.attach_policy(
-            policyName = self.POLICY_NAME
+            policyName = self.POLICY_NAME,
+            target = self.certificateArn
         )
