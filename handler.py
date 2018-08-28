@@ -5,11 +5,14 @@ def generateCert(event, context):
     """
     Assume event contains thingName of the thing which will be created
     """
+    thingName = event["thingName"]
+    thingType = event["thingType"]
+    policy = event["policy"]
     deviceManager = device_manager.DeviceManager()
-    deviceManager.createThing(event["thingName"])
+    deviceManager.createThing(thingName, thingType)
     deviceManager.createKeysAndCertificate()
     deviceManager.attachThingPrincipal()
-    deviceManager.attachPolicy()
+    deviceManager.attachPolicy(policy)
     body = {
         "certificateArn" : deviceManager.certificateArn,
         "certificateId"  : deviceManager.certificateId,

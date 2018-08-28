@@ -1,8 +1,6 @@
 import boto3
 
 class DeviceManager:
-    POLICY_NAME = 'test-device-policy'
-    THING_TYPE_NAME = 'test-thing-type'
 
     def __init__(self):
         self.client = boto3.client('iot')
@@ -17,10 +15,10 @@ class DeviceManager:
         self.thingArn = ""
         self.thingId = ""
     
-    def createThing(self, thingName):
+    def createThing(self, thingName, thingTypeName):
         response = self.client.create_thing(
             thingName = thingName,
-            thingTypeName = self.THING_TYPE_NAME,
+            thingTypeName = thingTypeName,
             attributePayload = {
                 'attributes': {
                     'test': '1'
@@ -48,8 +46,8 @@ class DeviceManager:
             principal = self.certificateArn
         )
 
-    def attachPolicy(self):
+    def attachPolicy(self, policyName):
         self.client.attach_policy(
-            policyName = self.POLICY_NAME,
+            policyName = policyName,
             target = self.certificateArn
         )
