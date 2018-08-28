@@ -12,7 +12,7 @@ Set up "Thing" automatically and register to AWS IoT by executing Lambda Functio
 ## How to run locally
 - Run following command
 ```
-$ sls invoke local -f generateCert -d '{"thingName":"thing001","thingType":"test-thing-type","policy":"test-device-policy"}'
+$ sls invoke local -f registerDeviceToAWSIoT -d '{"thingName":"thing001","thingType":"test-thing-type","policy":"test-device-policy"}'
 ```
 
 ## How to deploy
